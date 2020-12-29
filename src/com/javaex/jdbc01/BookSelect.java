@@ -36,7 +36,7 @@ public class BookSelect {
 			query += "select book_id, \n";
 			query += "title, \n";
 			query += "pubs, \n";
-			query += "pub_date, \n";
+			query += "to_char(pub_date, 'YYYY-MM-DD') pub_date, \n";
 			query += "author_id \n";
 			query += "from book";
 

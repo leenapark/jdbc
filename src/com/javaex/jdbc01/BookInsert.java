@@ -19,12 +19,15 @@ public class BookInsert {
 			// 2. Connection 얻어오기
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
+			System.out.println("접속성공");
 
 			// 3. SQL문 준비 / 바인딩 / 실행
-			String query = "insert into book values (seq_book_id.nextval, ?, ?, ?, ?)";	//author_id = int
-			pstmt = conn.prepareStatement(query);	//쿼리 만들기
-			
+			String query = "";
+			query += "insert into book";
+			query += " values (seq_book_id.nextval, ?, ?, ?, ?)";	//author_id = int
 			System.out.println(query);
+			
+			pstmt = conn.prepareStatement(query);	//쿼리 만들기
 			
 			/*
 			pstmt.setString(1, "우리들의 일그러진 영웅");
@@ -74,6 +77,7 @@ public class BookInsert {
 			pstmt.setString(3, "2012/02/04");
 			pstmt.setInt(4, 5);
 			
+			//쿼리문 실행
 			int count = pstmt.executeUpdate();      //insert, update, delete
 
 			

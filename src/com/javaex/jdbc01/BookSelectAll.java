@@ -39,27 +39,29 @@ public class BookSelectAll {
 			query += "select  b.book_id, \n";
 			query += "	b.title, \n";
 			query += "	b.pubs, \n";
-			query += "	b.pub_date, \n";
-			query += "	b.author_id, \n";
+			query += "	to_char(b.pub_date, 'YYYY-MM-DD') pub_date, \n";
+			query += "	a.author_id, \n";
 			query += "	a.author_name, \n";
 			query += "	a.author_desc \n";
-			query += "from book b, author a";
-			query += "where b.author_id = a.author_id";
+			query += " from book b, author a \n";
+			query += " where b.author_id = a.author_id";
 			
 			//쿼리문 test
 			System.out.println(query);
+			
+			pstmt = conn.prepareStatement(query); // 쿼리로 만들기
 			
 			rs = pstmt.executeQuery();
 			
 		    // 4.결과처리
 			while(rs.next()) {
-				int id = rs.getInt("b.book_id");
-				String title = rs.getString("b.title");
-				String pubs = rs.getString("b.bubs");
-				String pubDate = rs.getString("b.pub_date");
-				int authorId = rs.getInt("b.author_id");
-				String authorName = rs.getString("a.author_name");
-				String authorDesc = rs.getString("a.author_desc");
+				int id = rs.getInt("book_id");
+				String title = rs.getString("title");
+				String pubs = rs.getString("pubs");
+				String pubDate = rs.getString("pub_date");
+				int authorId = rs.getInt("author_id");
+				String authorName = rs.getString("author_name");
+				String authorDesc = rs.getString("author_desc");
 				
 				System.out.println(id + "\t" + title + "\t" + pubs + "\t" + pubDate + "\t" + authorId + "\t" + authorName + "\t" + authorDesc);
 			}
