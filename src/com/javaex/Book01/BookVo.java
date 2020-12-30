@@ -1,34 +1,63 @@
 package com.javaex.Book01;
 
-public class BookVo extends AuthorVo {
+public class BookVo {
+
 
 	//필드
 	private int bookId;
 	private String title;
 	private String pubs;
 	private String pubDate;
+	private int authorId;
+	private String authorName;
+	private String authorDesc;
 	
 	//생성자
+	//디폴트
 	public BookVo() {
 	}
-	
-	
+		
+	//bookInsert
 	public BookVo(String title, String pubs, String pubDate, int authorId) {
-		super(authorId);
 		this.title = title;
 		this.pubs = pubs;
 		this.pubDate = pubDate;
+		this.authorId = authorId;
 	}
-	
 
+	//bookList
 	public BookVo(int bookId, String title, String pubs, String pubDate, int authorId) {
-		super(authorId);
 		this.bookId = bookId;
 		this.title = title;
 		this.pubs = pubs;
 		this.pubDate = pubDate;
+		this.authorId = authorId;
 	}
 	
+	
+	//booksearch
+	public BookVo(int bookId, String title, String pubs, String pubDate, String authorName) {
+		this.bookId = bookId;
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+		this.authorName = authorName;
+	}
+
+	
+	//bookallList
+	public BookVo(int bookId, String title, String pubs, String pubDate, int authorId, String authorName,
+			String authorDesc) {
+		this.bookId = bookId;
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+		this.authorId = authorId;
+		this.authorName = authorName;
+		this.authorDesc = authorDesc;
+	}
+
+
 	//메소드 g/s
 	public int getBookId() {
 		return bookId;
@@ -69,17 +98,55 @@ public class BookVo extends AuthorVo {
 		this.pubDate = pubDate;
 	}
 
+	public int getAuthorId() {
+		return authorId;
+	}
+
+
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
+	}
+
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+
+	public String getAuthorDesc() {
+		return authorDesc;
+	}
+
+
+	public void setAuthorDesc(String authorDesc) {
+		this.authorDesc = authorDesc;
+	}
 	
 	//메소드 일반
 	
 	//출력
-	public void showInfo() {
-		System.out.println(bookId + ". " + title + ", " + pubs + ", " + pubDate + ", " + this.authorId);	
+	public void bookInfo() {
+		System.out.println(bookId + ". " + title + ", " + pubs + ", " + pubDate + ", " + authorId);	
 	}
 	
+	public void showInfo() {
+		System.out.println(bookId + ". " + title + ", " + pubs + ", " + pubDate + ", " + authorId + ", " + authorName + ", " + authorDesc);
+	}
+	
+	public void searchInfo() {
+		System.out.println(bookId + ". " + title + ", " + pubs + ", " + pubDate + ", " + authorName);
+	}
 	
 	@Override
 	public String toString() {
-		return "BookVo [bookId=" + bookId + ", title=" + title + ", pubs=" + pubs + ", pubDate=" + pubDate + "]";
+		return "BookVo [bookId=" + bookId + ", title=" + title + ", pubs=" + pubs + ", pubDate=" + pubDate
+				+ ", authorId=" + authorId + ", authorName=" + authorName + ", authorDesc=" + authorDesc + "]";
 	}
+	
+	
 }
