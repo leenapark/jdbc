@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BookDao {
 
@@ -217,7 +218,7 @@ public class BookDao {
 			query += "select book_id, \n";
 			query += "	title, \n";
 			query += "	pubs, \n";
-			query += "	pub_date, \n";
+			query += "	to_char(pub_date, 'YYYY-MM-DD') pub_date, \n";
 			query += "	author_id \n";
 			query += " from book";
 
@@ -267,6 +268,8 @@ public class BookDao {
 	
 	//데이터 검색
 	public void serch(String sql) {
-		
+		Scanner sc = new Scanner(System.in);
 	}
+	
+	
 }

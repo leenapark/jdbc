@@ -11,10 +11,18 @@ public class BookVo extends AuthorVo {
 	//생성자
 	public BookVo() {
 	}
-
+	
+	
+	public BookVo(String title, String pubs, String pubDate, int authorId) {
+		super(authorId);
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+	}
+	
 
 	public BookVo(int bookId, String title, String pubs, String pubDate, int authorId) {
-		super();
+		super(authorId);
 		this.bookId = bookId;
 		this.title = title;
 		this.pubs = pubs;
@@ -63,6 +71,13 @@ public class BookVo extends AuthorVo {
 
 	
 	//메소드 일반
+	
+	//출력
+	public void showInfo() {
+		System.out.println(bookId + ". " + title + ", " + pubs + ", " + pubDate + ", " + this.authorId);	
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "BookVo [bookId=" + bookId + ", title=" + title + ", pubs=" + pubs + ", pubDate=" + pubDate + "]";

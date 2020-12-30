@@ -10,6 +10,12 @@ public class AuthorVo {
 	//생성자
 	public AuthorVo() {
 	}
+	
+
+	public AuthorVo(int authorId) {
+		this.authorId = authorId;
+	}
+
 
 	public AuthorVo(String authorName, String authorDesc) {
 		this.authorName = authorName;
